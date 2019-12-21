@@ -1,0 +1,98 @@
+﻿@using MovieMemory.Models
+@model User
+@{
+	ViewBag.Title = "Settings";
+    var _countries = ViewBag._countries;
+}
+
+<h2>Account Settings</h2>
+
+<div class="row mt-5">
+    <div class="col-md-12 order-md-1">
+        <h4>My Profile <a href="@Url.Action("ChangePassword","Account")" style="font-size:10px">(Change Password)</a></h4>
+        <hr class="mb-4" />
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.Password)
+            @Html.HiddenFor(model => model.Picture)
+            @Html.HiddenFor(model => model.Role)
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div>
+                        @Html.EditorFor(model => model.Name, "", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div>
+                        @Html.EditorFor(model => model.Surname, "", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">@@</div>
+                    </div>
+                    @Html.EditorFor(model => model.Username, "", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+                <div class="text-danger">@ViewBag.usernameErrorMessage</div>
+                <div class="text-success">@ViewBag.usernameSuccessMessage</div>
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div>
+                    @Html.EditorFor(model => model.Email, "", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5 mb-3">
+                    @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DropDownListFor(model => model.Country, new SelectList(new List<string>(_countries)), "Choose your country...", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                    @{
+                        //Html.DropDownList("country", new SelectList(new List<Country>(Model.Countries.ToList()), "Id", "name"), "Choose your country...", new { @class = "form-control" })
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-5">
+                    @Html.LabelFor(model => model.Birthday, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.TextBoxFor(model => model.Birthday, new { @class = "form-control", @type = "date", @Value = Model.Birthday.ToString("yyyy-MM-dd") })
+                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="d-block mb-3">
+                @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" }) <br />
+                @Html.RadioButtonFor(model => model.Gender, "female", new { @class = "custom-control-inline" }) Female <br />
+                @Html.RadioButtonFor(model => model.Gender, "male", new { @class = "custom-control-inline" }) Male <br />
+            </div>
+
+            <hr class="mb-4">
+            <button class="btn btn-primary" type="submit">Save</button>
+            @Html.ActionLink("Return to Profile", "Profile", null, new { @class = "btn btn-secondary" })
+        }
+    </div>
+</div>
+
+<!--
+<script src="form-validation.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+-->

@@ -1,0 +1,110 @@
+﻿@model MovieMemory.Models.Friendship
+
+@{
+    ViewBag.Title = "Friends";
+}
+
+<h2>My Friends</h2>
+<hr />
+
+<div class="card bg-light">
+    <h5 class="card-header">Search User</h5>
+    <div class="card-body">
+        @using (Html.BeginForm("SearchUser", "Account", FormMethod.Post, new { @class = "form-inline flex-nowrap" }))
+        {
+            @Html.Hidden("username", User.Identity.Name)
+            @Html.TextBox("searchedUser", null, new { @class = "form-control w-100", placeholder = "Search for any user to add new friends..." })
+            <button class="text-muted btn btn-dark p-2" type="submit"><i class="fas fa-search js-scroll-trigger"></i></button>
+        }
+    </div>
+</div>
+
+<div class="card alert-success my-5 border-0">
+    <div class="card-header p-3">
+        <h2>Friends</h2>
+    </div>
+    <div class="card-body">
+        <table class="table table-borderless">
+            <tbody>
+                @if (Model.Friends.Count > 0)
+                {
+                    foreach (var f in Model.Friends)
+                    {
+                        <tr>
+                            <td>
+                                <img class="mr-2" style="width:50px" src="~/res/@f.Picture" alt="poster" />
+                                <a href="@Url.Action("Profile", new { username = f.Username })" role="button"><strong>@f.Name @f.Surname</strong></a>
+                            </td>
+                            <td class="float-right">
+                                <a href="@Url.Action("DeleteFriend", new { id = f.Id })" role="button" class="btn btn-danger p-3"><i class="fas fa-user-times"></i></a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td>You have no friends <i class="far fa-frown"></i></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if (Model.WaitingFriends.Count > 0)
+{
+    <div class="card alert-warning my-5 border-0">
+        <div class="card-header p-3">
+            <h3>Friend Requests <i class="fas fa-user-plus fa-1x"></i></h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-borderless">
+                <tbody>
+                    @foreach (var u in Model.WaitingFriends)
+                    {
+                        <tr class="mt-5">
+                            <td>
+                                <img class="mr-2" style="width:50px" src="~/res/@u.Picture" alt="poster" />
+                                <a href="@Url.Action("Profile", new { username = u.Username })" role="button"><strong>@u.Name @u.Surname</strong></a> wants to be friend with you
+                            </td>
+                            <td class="float-right">
+                                <a href="@Url.Action("AnswerFriend", new { id = u.Id, isAccepted = true })" role="button" class="btn btn-success p-3"><i class="fas fa-user-check"></i></a>
+                                <a href="@Url.Action("AnswerFriend", new { id = u.Id, isAccepted = false })" role="button" class="btn btn-danger p-3"><i class="fas fa-user-times"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+@if (Model.RequestedFriends.Count > 0)
+{
+    <div class="card alert-danger my-5 border-0">
+        <div class="card-header p-3">
+            <h3>Waiting Friend Requests <i class="fas fa-user-clock fa-1x"></i></h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-borderless">
+                <tbody>
+                    @foreach (var rf in Model.RequestedFriends)
+                    {
+                        <tr class="mt-5">
+                            <td>
+                                <img class="mr-2" style="width:50px" src="~/res/@rf.Picture" alt="poster" />
+                                You sent a friendship request to
+                                <a href="@Url.Action("Profile", new { username = rf.Username })" role="button"><strong>@rf.Name @rf.Surname</strong></a>
+                            </td>
+                            <td class="float-right">
+                                <a href="@Url.Action("DeleteFriend", new { id = rf.Id })" role="button" class="btn btn-secondary p-3"><i class="fas fa-user-clock"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+

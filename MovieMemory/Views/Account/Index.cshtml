@@ -1,0 +1,248 @@
+﻿@using MovieMemory.Models
+@model Tuple<List<FriendUpdate>, List<MovieListUpdate>, List<MovieRatingUpdate>>
+@{
+    /* model = Update */
+    ViewBag.Title = "Account Index";
+}
+
+<div class="alert alert-warning alert-dismissible fade show mb-5" role="alert">
+    <h4><i class="fas fa-bullhorn"></i> Welcome to Movie Memory, <strong>@User.Identity.Name</strong></h4>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<!-- Newsfeed section -->
+<div class="featured-text text-lg-left" id="newsfeed">
+    <h2>Newsfeed</h2>
+    <hr class="hr-primary">
+
+    @{
+        foreach (var update in Model.Item1)
+        {
+            <div class="card bg-dark text-white card mt-5">
+                <div class="card-header media">
+                    <div class="media-body">
+                        <a class="card-link" href="#">@update.User.Name @update.User.Surname</a> is now friends with:
+                    </div>
+                    <small class="text-muted mt-1">@update.UpdateTime.ToString("dd MMM. yyyy, HH:mm")</small>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-1">
+                            <img width="75" src="~/res/@update.Friend.User1.Picture" alt="Movie Poster" />
+                        </div>
+                        <div class="col-lg-11 pl-5">
+                            <div class="mb-2">
+                                <a href="../Account/Profile?username=@update.Friend.User1.Username">@update.Friend.User1.Name @update.Friend.User1.Surname</a>
+                            </div>
+                            <a href="../Account/AddFriend/@update.Friend.User1.Id" class="btn btn-secondary p-2">Add friend</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer alert-dark">
+                    <div id="comment" class="px-4 mb-1">
+                        <div>
+                            @if (update.Likes.FirstOrDefault(i => i.User.Username == User.Identity.Name) != null)
+                            {
+                                <a href="../Account/DoNotLikeUpdate?updateId=@update.Id"><i class="fas fa-thumbs-up h4"></i></a>
+                            }
+                            else
+                            {
+                                <a href="../Account/LikeUpdate?updateId=@update.Id"><i class="fas fa-thumbs-up h4"></i></a>
+                            }
+                            <a href="#">@update.Likes.Count</a>
+                            <a href="#"><i class="fas fa-comment h4 ml-3"></i></a>
+                            <a href="#">@update.Reviews.Count</a>
+                        </div>
+                    </div>
+                    @using (Html.BeginForm("CommentUpdate", "Account", FormMethod.Post))
+                    {
+                        <input id="updateId" name="updateId" type="hidden" value="@update.Id">
+                        <div class="row px-4">
+                            <textarea name="comment" class="form-control col-xl-11 col-md-10 col-sm-9" rows="1" placeholder="Write your comment..."></textarea>
+                            <button class="btn btn-primary p-2 ml-auto" type="submit">Send</button>
+                        </div>
+                    }
+                    @if (update.Reviews.Count != 0)
+                    {
+                        <hr />
+                    }
+                    <ul class="list-unstyled mb-0">
+                        @{
+                            var reviews = update.Reviews.OrderByDescending(i => i.ReviewTime).ToList();
+                            for (int i = 0; i < reviews.Count && i < 2; i++)
+                            {
+                                <li class="media my-3">
+                                    <img src="~/res/avatar.png" class="mr-3" alt="user picture" width="50">
+                                    <div class="media-body">
+                                        <h5 class="mt-0 mb-1"><a href="@Url.Action("Profile", "Account", new { username = reviews[i].User.Username })">@reviews[i].User.Name @reviews[i].User.Surname</a></h5>
+                                        @reviews[i].Comment
+                                    </div>
+                                    <small class="text-muted mt-1">@reviews[i].ReviewTime.ToString("dd MMM. yyyy, HH:mm")</small>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
+    }
+
+    @foreach (var update in Model.Item2)
+    {
+        <div class="card bg-dark text-white card mt-5">
+            <div class="card-header media">
+                <div class="media-body">
+                    <a class="card-link" href="#">@update.User.Name @update.User.Surname</a> @update.Content
+                </div>
+                <small class="text-muted mt-1">@update.UpdateTime.ToString("dd MMM. yyyy, HH:mm")</small>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img width="175" src="~/res/@update.Movie.Poster" alt="Movie Poster" />
+                    </div>
+                    <div class="col-lg-9">
+                        <a href="@Url.Action("MovieInfo", "Home", new { id = update.Movie.Id })" class="movie-header h4">@update.Movie.Title</a>
+                        <div class="align-content-between mb-2" id="review">
+                            @{
+                                Html.RenderAction("AddMovieToPersonalMovieListDropdown", "Account", new { movieId = update.Movie.Id });
+                                Html.RenderAction("StarRatingBar", "Account", new { movieId = update.Movie.Id });
+                            }
+                        </div>
+                        <p class="movie-content">
+                            @update.Movie.Theme
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer alert-dark">
+                <div id="comment" class="px-4 mb-1">
+                    <div>
+                        @if (update.Likes.FirstOrDefault(i => i.User.Username == User.Identity.Name) != null)
+                        {
+                            <a href="../Account/DoNotLikeUpdate?updateId=@update.Id"><i class="fas fa-thumbs-up h4"></i></a>
+                        }
+                        else
+                        {
+                            <a href="../Account/LikeUpdate?updateId=@update.Id"><i class="fas fa-thumbs-up h4"></i></a>
+                        }
+                        <a href="#">@update.Likes.Count</a>
+                        <a href="#"><i class="fas fa-comment h4 ml-3"></i></a>
+                        <a href="#">@update.Reviews.Count</a>
+                    </div>
+                </div>
+                @using (Html.BeginForm("CommentUpdate", "Account", FormMethod.Post))
+                {
+                    <input id="updateId" name="updateId" type="hidden" value="@update.Id">
+                    <div class="row px-4">
+                        <textarea name="comment" class="form-control col-xl-11 col-md-10 col-sm-9" rows="1" placeholder="Write your comment..."></textarea>
+                        <button class="btn btn-primary p-2 ml-auto" type="submit">Send</button>
+                    </div>
+                }
+                @if (update.Reviews.Count != 0)
+                {
+                    <hr />
+                }
+                <ul class="list-unstyled mb-0">
+                    @{ 
+                        var reviews = update.Reviews.OrderByDescending(i => i.ReviewTime).ToList();
+                        for (int i = 0; i < reviews.Count && i < 2; i++)
+                        {
+                            <li class="media my-3">
+                                <img src="~/res/avatar.png" class="mr-3" alt="user picture" width="50">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"><a href="@Url.Action("Profile", "Account", new { username = reviews[i].User.Username })">@reviews[i].User.Name @reviews[i].User.Surname</a></h5>
+                                    @reviews[i].Comment
+                                </div>
+                                <small class="text-muted mt-1">@reviews[i].ReviewTime.ToString("dd MMM. yyyy, HH:mm")</small>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+
+    @foreach (var update in Model.Item3)
+    {
+        <div class="card bg-dark text-white card mt-5">
+            <div class="card-header media">
+                <div class="media-body">
+                    <a class="card-link" href="#">@update.User.Name @update.User.Surname</a> rated a movie @update.Rating/10
+                </div>
+                <small class="text-muted mt-1">@update.UpdateTime.ToString("dd MMM. yyyy, HH:mm")</small>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img width="175" src="~/res/@update.Movie.Poster" alt="Movie Poster" />
+                    </div>
+                    <div class="col-lg-9">
+                        <a href="@Url.Action("MovieInfo", "Home", new { id = update.Movie.Id })" class="movie-header h4">@update.Movie.Title</a>
+                        <div class="align-content-between mb-2" id="review">
+                            @{
+                                Html.RenderAction("AddMovieToPersonalMovieListDropdown", "Account", new { movieId = update.Movie.Id });
+                                Html.RenderAction("StarRatingBar", "Account", new { movieId = update.Movie.Id });
+                            }
+                        </div>
+                        <p class="movie-content">
+                            @update.Movie.Theme
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer alert-dark">
+                <div id="comment" class="px-4 mb-1">
+                    <div>
+                        @if (update.Likes.FirstOrDefault(i => i.User.Username == User.Identity.Name) != null)
+                        {
+                            <a href="../Account/DoNotLikeUpdate?updateId=@update.Id"><i class="fas fa-thumbs-up h4"></i></a>
+                        }
+                        else
+                        {
+                            <a href="../Account/LikeUpdate?updateId=@update.Id"><i class="fas fa-thumbs-up h4"></i></a>
+                        }
+                        <a href="#">@update.Likes.Count</a>
+                        <a href="#"><i class="fas fa-comment h4 ml-3"></i></a>
+                        <a href="#">@update.Reviews.Count</a>
+                    </div>
+                </div>
+                @using (Html.BeginForm("CommentUpdate", "Account", FormMethod.Post))
+                {
+                    <input id="updateId" name="updateId" type="hidden" value="@update.Id">
+                    <div class="row px-4">
+                        <textarea name="comment" class="form-control col-xl-11 col-md-10 col-sm-9" rows="1" placeholder="Write your comment..."></textarea>
+                        <button class="btn btn-primary p-2 ml-auto" type="submit">Send</button>
+                    </div>
+                }
+                @if (update.Reviews.Count != 0)
+                {
+                    <hr />
+                }
+                <ul class="list-unstyled mb-0">
+                    @{
+                        var reviews = update.Reviews.OrderByDescending(i => i.ReviewTime).ToList();
+                        for (int i = 0; i < reviews.Count && i < 2; i++)
+                        {
+                            <li class="media my-3">
+                                <img src="~/res/avatar.png" class="mr-3" alt="user picture" width="50">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"><a href="@Url.Action("Profile", "Account", new { username = reviews[i].User.Username })">@reviews[i].User.Name @reviews[i].User.Surname</a></h5>
+                                    @reviews[i].Comment
+                                </div>
+                                <small class="text-muted mt-1">@reviews[i].ReviewTime.ToString("dd MMM. yyyy, HH:mm")</small>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+
+</div>
+

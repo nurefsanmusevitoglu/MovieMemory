@@ -1,0 +1,64 @@
+﻿@using MovieMemory.Models
+@model List<PersonalMovieList>
+@{
+    ViewBag.Title = "Movies";
+    List<Movie> allMovies = ViewBag.allMovies;
+}
+
+<h2>My Movies</h2>
+<hr />
+
+<div class="card bg-light mb-5">
+    <h5 class="card-header">Search Movie</h5>
+    <div class="card-body">
+        @using (Html.BeginForm("SearchMovie", "Home", FormMethod.Post, new { @class = "form-inline flex-nowrap" }))
+        {
+            @Html.TextBox("searchedMovie", null, new { @class = "form-control w-100", placeholder = "Search for any movie..." })
+            <button class="text-muted btn btn-dark p-2" type="submit"><i class="fas fa-search js-scroll-trigger"></i></button>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3" id="movieNav">
+        <div class="nav flex-column" id="v-pills-tab-table" role="tablist" aria-orientation="vertical">
+            <a class="px-0" id="v-pills-tab" data-toggle="pill" href="#allmovies" role="tab" aria-controls="v-pills" aria-selected="false">All (@allMovies.Count)</a>
+            @foreach (var pml in Model)
+            {
+                string id = "personalMovieList" + pml.Id;
+                if (pml.Title == "Want-to-watch" || pml.Title == "Watched")
+                {
+                    <a class="px-0" id="@pml.Id" data-toggle="pill" href="#@id" role="tab" aria-controls="v-pills" aria-selected="false">@pml.Title (@pml.Movies.Count)</a>
+                }
+                else
+                {
+                    <span><a class="v-pills-tab px-0" id="@pml.Id" data-toggle="pill" href="#@id" role="tab" aria-controls="v-pills" aria-selected="false">@pml.Title (@pml.Movies.Count)</a></span>
+                }
+            }
+            <a href="#" class="small mt-3" id="edit-lists">(Edit Lists)</a>
+            <a href="/Account/AddMovieList" class="btn btn-primary my-1 p-2">Add List</a>
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="allmovies" role="tabpanel" aria-labelledby="v-pills-tab">@Html.Partial("ShowMovieList", allMovies)</div>
+            @foreach (var pml in Model)
+            {
+                string id = "personalMovieList" + pml.Id;
+                <div class="tab-pane fade show" id="@id" role="tabpanel" aria-labelledby="v-pills-tab">@{ Html.RenderAction("ShowMovieList", "Account", new { id = pml.Id }); }</div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    var editListItem = document.querySelector('#edit-lists');
+    var personalListItems = document.querySelectorAll('.v-pills-tab');
+
+    editListItem.addEventListener('click', function () {
+        personalListItems.forEach(function (personalList) {
+            var id = personalList.id;
+            $(personalList).after('<span><a href="/Account/DeleteMovieList/' + id + '"><i class="fas fa-times float-right" style="color:red"></i></a></span>');
+        });
+    });
+</script>

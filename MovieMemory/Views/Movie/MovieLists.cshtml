@@ -1,0 +1,7 @@
+﻿@using MovieMemory.Models
+@model List<MovieList>
+
+@foreach (var ml in Model)
+{
+    <li><a href="@Url.Action("MovieList", "Movie", new { id = ml.Id })">@ml.Title</a></li>
+}

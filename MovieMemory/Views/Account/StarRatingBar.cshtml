@@ -1,0 +1,25 @@
+﻿@using MovieMemory.Models
+@model Tuple<int ,int>
+
+<div id="full-stars-example">
+    @if (Model.Item2 == 0)
+    {
+        <p class="text-muted mb-0">Rate movie</p>
+    }
+    else
+    {
+        <p class="text-muted mb-0">Your Rating:</p>
+    }
+    <div class="rating-group">
+        @for (int i = 1; i <= Model.Item2; i++)
+        {
+            string labelName = "rating-" + i;
+            <a href="../Home/MovieInfo/@Model.Item1" aria-label="stars" class="rating__label" for="@labelName"><i class="rating__icon rating__icon--star fa fa-star"></i></a>
+        }
+        @for (int i = Model.Item2+1; i <= 10; i++)
+        {
+            string labelName = "rating-" + i;
+            <a href="../Home/MovieInfo/@Model.Item1" aria-label="stars" class="rating__label" for="@labelName"><i style="color:#dddddd" class="rating__icon rating__icon--star fa fa-star"></i></a>
+        }
+    </div>
+</div>

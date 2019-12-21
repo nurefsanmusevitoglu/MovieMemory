@@ -1,0 +1,53 @@
+﻿@using MovieMemory.Models
+@model List<Movie>
+@{
+    ViewBag.Title = "SearchMovie";
+    if (!User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    }
+}
+
+<h4>Search Movie</h4>
+<hr />
+@using (Html.BeginForm("SearchMovie", "Home", FormMethod.Post, new { @class = "form-inline flex-nowrap mb-5" }))
+{
+    @Html.TextBox("searchedMovie", null, new { @class = "form-control w-100", placeholder = "Search for any movie..." })
+    <button class="text-muted btn btn-dark p-2" type="submit"><i class="fas fa-search js-scroll-trigger"></i></button>
+}
+
+<div class="alert alert-success alert-dismissible fade show mb-5" role="alert">
+    <h5>There are @Model.Count movies found</h5>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<table class="table table-borderless">
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td width="12%">
+                    <img class="w-100 mr-2" style="min-width:75px" src="~/res/@m.Poster" alt="poster" />
+                </td>
+                <td>
+                    <a href="@Url.Action("MovieInfo", new { id = m.Id })" role="button" class="h4">@m.Title</a>
+                    <p>by <strong>@m.Director</strong></p>
+                    @{
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            Html.RenderAction("AddMovieToPersonalMovieListDropdown", "Account", new { movieId = m.Id });
+                        }
+                        else
+                        {
+                            if (m.Theme.Length > 220) { <p class="small">@m.Theme.Substring(0, 220)...</p> }
+                            else { <p class="small">@m.Theme</p> }
+                        }
+                    }
+                    <p class="text-muted">IMDB Rating: @m.IMDBRating</p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+﻿@using MovieMemory.Models
+@model List<Genre>
+@{
+    ViewBag.Title = "Genres";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2><a href="@Url.Action("Genres", "Admin")">Genres</a></h2>
+<hr />
+
+<div class="mb-5" id="searchBar">
+    @using (Html.BeginForm("SearchGenre", "Admin", FormMethod.Post, new { @class = "form-inline flex-nowrap" }))
+    {
+        @Html.TextBox("searchedGenre", null, new { @class = "form-control w-100", placeholder = "Search for any genre..." })
+        <button class="text-muted btn btn-dark p-2" type="submit"><i class="fas fa-search js-scroll-trigger"></i></button>
+    }
+</div>
+
+@if (ViewBag.searchMessage != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.searchMessage
+    </div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Genre Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var g in Model)
+        {
+            <tr>
+                <td>@g.Id</td>
+                <td>@g.GenreName</td>
+                <td class="float-right">
+                    <a href="@Url.Action("GenreEdit", new { id = g.Id })" role="button" class="btn btn-success">Edit</a>
+                    <a href="@Url.Action("GenreDelete", new { id = g.Id })" role="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Add New Genre", "GenreAdd", null, new { @class = "btn btn-info" })
+@Html.ActionLink("Return to Main Page", "Index", null, new { @class = "btn btn-warning" })

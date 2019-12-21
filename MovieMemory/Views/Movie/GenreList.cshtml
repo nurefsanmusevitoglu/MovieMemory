@@ -1,0 +1,31 @@
+﻿@using MovieMemory.Models
+@model ICollection<Movie>
+@{
+    ViewBag.Title = "GenreList";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    var g = ViewBag.genre;
+    int id = g.Id;
+}
+
+<h2>Movies in Genre: <a href="@Url.Action("GenreList", "Movie", new { id =  id})">@g.GenreName</a></h2>
+<hr />
+
+<div class="mb-5" id="searchBar">
+    @using (Html.BeginForm("SearchMovieInGenre", "Movie", FormMethod.Post, new { @class = "form-inline flex-nowrap" }))
+    {
+        @Html.Hidden("genreId", id)
+        @Html.TextBox("searchedMovie", null, new { @class = "form-control w-100", placeholder = "Search for movies for this genre..." })
+        <button class="text-muted btn btn-dark p-2" type="submit"><i class="fas fa-search js-scroll-trigger"></i></button>
+    }
+</div>
+
+<div class="alert alert-success alert-dismissible fade show mb-5" role="alert">
+    <h5>There are @Model.Count movies listed for <strong>@g.GenreName</strong> category</h5>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="card alert-warning">
+    @Html.Partial("MovieTable")
+</div>

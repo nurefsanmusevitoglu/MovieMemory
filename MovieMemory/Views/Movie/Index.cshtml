@@ -1,0 +1,17 @@
+﻿@using MovieMemory.Models
+@model List<Movie>
+@{
+    ViewBag.Title = " Movie Index";
+}
+
+<h2>Movies</h2>
+<hr />
+
+<ul>
+    @foreach (var movie in Model)
+    {
+        <li>@movie.title</li>
+    }
+
+</ul>
+

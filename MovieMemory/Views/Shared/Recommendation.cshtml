@@ -1,0 +1,27 @@
+﻿@using MovieMemory.Models
+@model List<Movie>
+
+<ul class="list-group mb-3">
+
+	@for (int i = 0; i < Model.Count; i++)
+	{
+		<li class="list-group-item d-flex justify-content-between lh-condensed">
+			<span><img style="width: 100px; height:150px;" src="~/res/@Model[i].poster" alt="poster" /></span>
+			<div class="p-2">
+				<h6 class="my-0">@Model[i].title</h6>
+				<small class="text-muted">
+					@if (Model[i].theme.Length > 70)
+					{
+						@(Model[i].theme.Substring(0, 67) + "...")
+					}
+					else
+					{
+						@Model[i].theme
+					}
+				</small>
+			</div>
+			<div><button class="text-muted btn btn-dark px-2 py-1" type="button"><i class="fas fa-caret-right js-scroll-trigger"></i></button></div>
+		</li>
+	}
+
+</ul>

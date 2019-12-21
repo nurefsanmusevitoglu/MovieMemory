@@ -1,0 +1,18 @@
+﻿@using MovieMemory.Models
+@model List<Genre>
+
+@{
+    double v = Model.Count / 3;
+    int c = (int)Math.Ceiling(v);
+    for (int j = 0; j < 3; j++)
+    {
+        <div class="col-md-4 pr-0">
+            @for (int i = j*c; i < (j+1)*c && i < Model.Count; i++)
+            {
+                <a href="@Url.Action("GenreList", "Movie", new { id = Model[i].Id })">@Model[i].GenreName</a>
+                <br />
+            }
+        </div>
+    }
+    
+}

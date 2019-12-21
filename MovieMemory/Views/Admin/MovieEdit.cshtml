@@ -1,0 +1,87 @@
+﻿@using MovieMemory.Models
+@model Movie
+@{
+    ViewBag.Title = "MovieEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit Movie: @Model.Title</h2>
+
+<hr class="mb-4" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+    <img width="150" src="~/res/@Model.Poster" class="float-right" alt="Poster" />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.Poster)
+    @Html.HiddenFor(model => model.IMDBRating)
+
+    <div class="form-group col-md-5 pl-0">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div>
+            @Html.EditorFor(model => model.Title, "", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group col-md-10 pl-0">
+        @Html.LabelFor(model => model.Theme, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div>
+            @Html.TextAreaFor(model => model.Theme, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Theme, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group col-md-5 pl-0">
+        @Html.LabelFor(model => model.Director, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div>
+            @Html.EditorFor(model => model.Director, "", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Director, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group col-md-3 pl-0">
+        @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div>
+            @Html.DropDownListFor(model => model.Country, new SelectList(new List<string>(ViewBag.countries)), "Choose your country...", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group col-md-2 pl-0">
+        @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-12" })
+        <div>
+            @Html.EditorFor(model => model.Duration, "", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group col-md-2 pl-0">
+        @Html.LabelFor(model => model.ReleaseDate, htmlAttributes: new { @class = "control-label col-md-12" })
+        <div>
+            @Html.TextBoxFor(model => model.ReleaseDate, new { @class = "form-control", @type = "date", @Value = Model.ReleaseDate.ToString("yyyy-MM-dd") })
+            @Html.ValidationMessageFor(model => model.ReleaseDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group col-md-2 pl-0">
+        @Html.LabelFor(model => model.IMDBRating, htmlAttributes: new { @class = "control-label col-md-12" })
+        <div>
+            @Html.EditorFor(model => model.IMDBRating, "", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IMDBRating, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group mt-4">
+        <div class="col-md-offset-2">
+            <input type="submit" value="Save" class="btn btn-success" />
+            @Html.ActionLink("Return to Movies", "Movies", null, new { @class = "btn btn-warning" })
+        </div>
+    </div>
+</div>
+}

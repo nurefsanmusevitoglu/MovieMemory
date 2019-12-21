@@ -1,0 +1,274 @@
+﻿@using MovieMemory.Models
+@model User
+@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+     
+    <title>Movie Memory</title>
+    <link rel="icon" href="~/res/little_logo.png"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/startbootstrap-grayscale-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="~/startbootstrap-grayscale-gh-pages//vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/startbootstrap-grayscale-gh-pages/css/grayscale.min.css" rel="stylesheet">
+
+    <style>
+        #page-top ul{
+            list-style-type: none;
+        }
+        #sign-up-form input{
+            width: -webkit-fill-available;
+        }
+    </style>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Movie Memory</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#movies">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#signup">Sign in</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead">
+        <div class="container d-flex h-100 align-items-center">
+            <div class="mx-auto text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Movie Memory</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-2">Do not try to keep in mind which movie you've watched.</h2>
+                <h2 class="text-white-50 mx-auto mb-5">Let <a class="text-white-50 js-scroll-trigger" href="#about"><strong>Movie Memory</strong></a> do it for you.</h2>
+                <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about-section text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-white mb-4">About <button class="btn btn-light p-1" style="letter-spacing:normal"><strong>MM</strong></button></h2>
+                    <p class="text-white-50">
+                        Movie Memory is a social cataloging website that allows you to freely search its database of movies, annotations, and reviews.
+                        You can sign up, generate personal movie lists, have some new friends, and see what what your friends are watching. Moreover, movie recommendations are always be there for you.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Section -->
+    <section id="movies" class="projects-section bg-light">
+        <div class="container">
+
+            <!-- Movies Row -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                <div class="col-xl-6 col-lg-7">
+                    <img class="img-fluid mb-3 mb-lg-0" src="~/startbootstrap-grayscale-gh-pages/img/movie-image-01.jpg" alt="">
+                </div>
+                <div class="col-xl-5 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Movies</h4>
+                        <p class="text-black-50">There are some genres and lists for you. Start selecting one and discover the movie world!</p>
+                        <hr class="mt-4 w-100" />
+                        @using (Html.BeginForm("SearchMovie", "Home", FormMethod.Post, new { @class = "form-inline flex-nowrap mb-5" }))
+                        {
+                            <input class="form-control w-75" id="searchedMovie" name="searchedMovie" placeholder="Start searching for a movie..." type="text" value="">
+                            <button class="text-muted btn btn-dark p-2" type="submit"><i class="fas fa-search js-scroll-trigger"></i></button>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movie Genres Row -->
+            <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="~/startbootstrap-grayscale-gh-pages/img/movie-image-02.png" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left" style="padding: 3rem">
+                                <h4 class="text-white">Genres</h4>
+                                <div class="row">
+                                    @{ Html.RenderAction("Genres", "Movie"); }
+                                </div>
+                                <hr class="d-none d-lg-block mb-0 ml-0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movie Lists Row -->
+            <div class="row justify-content-center no-gutters">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="~/startbootstrap-grayscale-gh-pages/img/movie-image-03.png" alt="">
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-right" style="padding: 3rem">
+                                <h4 class="text-white">Love Lists?</h4>
+                                <div id="lists">
+                                    <ul>
+                                        @{ Html.RenderAction("MovieLists", "Movie"); }
+                                    </ul>
+                                </div>
+                                <hr class="d-none d-lg-block mb-0 mr-0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Signup Section -->
+    <section id="signup" class="signup-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    @using (Html.BeginForm("SignIn", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal mb-5">
+                            <div class="row">
+                                <div class="col-lg-6 form-group mb-2">
+                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2 text-white" })
+                                    <div>
+                                        @Html.EditorFor(model => model.Email, "", new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="text-danger">@ViewBag.InvalidUserErrorMessage</div>
+                                </div>
+                                <div class="col-lg-6 form-group">
+                                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2 text-white" })
+                                    <div>
+                                        @Html.PasswordFor(model => model.Password, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="text-center">
+                        <i class="fas fa-film fa-2x mt-2 mb-2 text-white"></i>
+                        <h2 class="text-white mb-3">Sign up to join MM!</h2>
+                    </div>
+
+                    @using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal text-white">
+                            <div class="row">
+                                <div class="col-lg-6 form-group mb-2">
+                                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 text-white" })
+                                    <div>
+                                        @Html.EditorFor(model => model.Name, "", new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 form-group mb-2">
+                                    @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-2 text-white" })
+                                    <div>
+                                        @Html.EditorFor(model => model.Surname, "", new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-2">
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2 text-white" })
+                                <div>
+                                    @Html.EditorFor(model => model.Email, "", new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="text-danger">@ViewBag.registeredEmailErrorMessage</div>
+                            </div>
+                            <div class="form-group mb-2">
+                                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2 text-white" })
+                                    <div>
+                                        @Html.PasswordFor(model => model.Password, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            <div class="form-group">
+                                <label for="exampleInputRepassword" class="control-label col-md-3">Repassword</label>
+                                <div>
+                                    @Html.Password("Repassword", null, new { @class = "form-control" })
+                                </div>
+                                <span class="text-danger">@ViewBag.passwordErrorMessage</span>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <button type="submit" class="btn btn-primary">Sign up</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black small text-center text-white-50">
+        <div class="container">
+            Copyright &copy; Movie Memory 2019
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/startbootstrap-grayscale-gh-pages/vendor/jquery/jquery.min.js"></script>
+    <script src="~/startbootstrap-grayscale-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="~/startbootstrap-grayscale-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="~/startbootstrap-grayscale-gh-pages/js/grayscale.min.js"></script>
+
+</body>
+
+</html>

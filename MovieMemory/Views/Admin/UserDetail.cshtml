@@ -1,0 +1,82 @@
+﻿@using MovieMemory.Models
+@model User
+@{
+    ViewBag.Title = "UserDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var friends = ViewBag.friends;
+}
+
+<div class="d-flex align-items-baseline justify-content-between">
+    <h2>@Model.Name @Model.Surname</h2>
+    <img width="100" src="~/res/@Model.Picture" alt="Profile Picture" />
+</div>
+<hr class="mb-4" />
+
+<ul class="list-group" id="userDetail">
+    <li class="mb-3">
+        <h4>Email Address</h4>
+        <p>@Model.Email</p>
+    </li>
+    <li class="mb-3">
+        <h4>Birthday</h4>
+        <p>@Model.Birthday.ToString("dd/MM/yyy")</p>
+    </li>
+    <li class="mb-3">
+        <h4>Gender</h4>
+        <p>@Model.Gender</p>
+    </li>
+    <li class="mb-3">
+        <h4>Country</h4>
+        <p>@Model.Country</p>
+    </li>
+    <li class="mb-3">
+        <h4>@Model.Name's Friends</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">userID</th>
+                    <th scope="col">Picture</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Surname</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var userFriend in friends)
+                {
+                    <tr>
+                        <td>@userFriend.Id</td>
+                        <td><img width="50" src="~/res/@userFriend.Picture" alt="profile picture" /></td>
+                        <td>@userFriend.Name</td>
+                        <td>@userFriend.Surname</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </li>
+    <li class="mb-3">
+        <h4>@Model.Name's Movies</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">movieID</th>
+                    <th scope="col">Poster</th>
+                    <th scope="col">Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var userMovie in Model.GetAllMovies())
+                {
+                    <tr>
+                            <td>@userMovie.Id</td>
+                            <td>
+                                <img width="50" src="~/res/@userMovie.Poster" alt="Poster" />
+                            </td>
+                            <td>@userMovie.Title</td>
+                        </tr>
+                }
+            </tbody>
+        </table>
+    </li>
+</ul>
+
+@Html.ActionLink("Return to Users", "Users", null, new { @class = "btn btn-warning" })

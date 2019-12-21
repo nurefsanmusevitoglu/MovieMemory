@@ -1,0 +1,27 @@
+﻿@model List<MovieMemory.Models.Movie>
+@{
+    ViewBag.Title = "SearchMovie";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Search Movie</h2>
+<hr />
+
+<div class="mb-5" id="searchBar">
+    @using (Html.BeginForm("SearchMovie", "Admin", FormMethod.Post, new { @class = "form-inline flex-nowrap" }))
+    {
+        @Html.TextBox("searchedMovie", null, new { @class = "form-control w-100", placeholder = "Search for any movie..." })
+        <button class="text-muted btn btn-dark p-2" type="submit"><i class="fas fa-search js-scroll-trigger"></i></button>
+    }
+</div>
+
+<div class="alert alert-success alert-dismissible fade show my-5" role="alert">
+    <h5>There are @Model.Count movies found</h5>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+@Html.Partial("MovieTable")
+
+@Html.ActionLink("Return to Movies", "Movies", null, new { @class = "btn btn-warning" })

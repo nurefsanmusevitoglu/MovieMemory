@@ -1,0 +1,87 @@
+﻿@using MovieMemory.Models
+@model User
+@{
+    ViewBag.Title = "Profile";
+}
+
+<!-- Info -->
+<div class="d-flex lh-condensed">
+	<span class="mr-5"><img style="width: 200px; height:200px;" src="~/res/@Model.Picture" alt="poster" /></span>
+	<div class="p-2">
+        <h2 class="my-0">
+            @Model.Name  @Model.Surname
+            @if (Model.Username == User.Identity.Name)
+            {
+                <a href="@Url.Action("Settings")" class="small" style="font-size:10px;"> (edit profile)</a>
+            }
+        </h2>
+		<hr class="mt-0"/>
+		<table>
+			<tr>
+				<th class="pr-4" scope="row">Details</th>
+                <td>
+                    Age @Model.GetAge(),
+                    @Model.Gender, 
+                    @Model.Country
+                </td>
+			</tr>
+			<tr>
+				<th class="pr-4" scope="row">Birthday</th>
+				<td>@Model.Birthday.ToString("dd/MM/yyyy")</td>
+			</tr>
+			<tr>
+				<!-- Activity is not dynamic! -->
+				<th class="pr-4" scope="row">Activity</th>
+                <td>Joined in @Model.JoinTime.ToString("MMM. yyyy"), Last activity...</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<!-- Movie Lists -->
+<div class="p-2 mt-5">
+	<h6 class="text-uppercase">@Model.Name's movie lists</h6>
+	<hr class="mt-0"/>
+    <ul class="list-group">
+        @{ 
+            //urlDir Needs to be changed-------------------
+            var urlDir = Url.Action("Profile", "Account", new { username = Model.Username });
+            if (Model.Username == User.Identity.Name)
+            {
+                urlDir = Url.Action("Movies", "Account");
+            }
+        }
+        <li><a href="">All (@Model.GetAllMovies().Count)</a></li>
+        @foreach (var pml in Model.PersonalMovieLists.Where(i => i.UserId == Model.Id).ToList())
+        {
+            <li><a href="@urlDir">@pml.Title (@pml.Movies.Count)</a></li>
+        }
+    </ul>
+</div>
+
+<!-- Watched Movies -->
+<div class="p-2 mt-5">
+	<h6 class="text-uppercase">@Model.Name watched</h6>
+	<hr class="mt-0 mb-2"/>
+	<ul class="list-group mb-3">
+        @foreach (var m in Model.PersonalMovieLists.FirstOrDefault(i => i.Title == "Watched").Movies)
+        {
+            <li class="my-2">
+                <div class="d-flex lh-condensed">
+                    <span><img style="width: 50px; height:75px;" src="~/res/@m.Poster" alt="poster" /></span>
+                    <a href="#" class="text-dark p-2">@m.Title</a>
+                </div>
+                <small class="text-muted mt-1">@DateTime.Now.ToString("d")</small>
+            </li>
+        }
+	</ul>
+</div>
+
+<!-- Recent Updates -->
+<div class="p-2 mt-5">
+	<h6 class="text-uppercase">@Model.Name's last updates</h6>
+	<hr class="mt-0 mb-2" />
+	<ul class="list-group">
+		No recent updates...
+	</ul>
+</div>

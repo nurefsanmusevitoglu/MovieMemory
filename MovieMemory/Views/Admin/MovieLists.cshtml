@@ -1,0 +1,49 @@
+﻿@using MovieMemory.Models
+@model List<MovieList>
+@{
+    ViewBag.Title = "Movie Lists";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2><a href="@Url.Action("MovieLists", "Admin")">@ViewBag.Title</a></h2>
+<hr />
+
+<div class="mb-5" id="searchBar">
+    @using (Html.BeginForm("SearchMovieList", "Admin", FormMethod.Post, new { @class = "form-inline flex-nowrap" }))
+    {
+        @Html.TextBox("searchedMovieList", null, new { @class = "form-control w-100", placeholder = "Search for any movie list..." })
+        <button class="text-muted btn btn-dark p-2" type="submit"><i class="fas fa-search js-scroll-trigger"></i></button>
+    }
+</div>
+
+@if (ViewBag.searchMessage != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.searchMessage
+    </div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">List Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ml in Model)
+        {
+            <tr>
+                <td>@ml.Id</td>
+                <td>@ml.Title</td>
+                <td class="float-right">
+                    <a href="@Url.Action("MovieListEdit", new { id = ml.Id })" role="button" class="btn btn-success">Edit</a>
+                    <a href="@Url.Action("MovieListDelete", new { id = ml.Id })" role="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Add New List", "MovieListAdd", null, new { @class = "btn btn-info" })
+@Html.ActionLink("Return to Main Page", "Index", null, new { @class = "btn btn-warning" })

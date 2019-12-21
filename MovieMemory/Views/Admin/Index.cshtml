@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container align-items-center mt-5">
+
+    <div class="btn-group-vertical btn-block py-5">
+        <a href="@Url.Action("Users")" role="button" class="btn btn-info py-5"><h6>Edit Users</h6></a>
+        <a href="@Url.Action("Movies")" role="button" class="btn btn-success py-5"><h6>Edit Movies</h6></a>
+        <a href="@Url.Action("MovieLists")" role="button" class="btn btn-danger py-5"><h6>Edit Movie Lists</h6></a>
+        <a href="@Url.Action("Genres")" role="button" class="btn btn-secondary py-5"><h6>Edit Genres</h6></a>
+    </div>
+</div>

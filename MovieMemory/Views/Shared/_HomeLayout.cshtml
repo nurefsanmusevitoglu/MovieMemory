@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Movie Memory</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Movie Memory</title>
+    <link rel="icon" href="~/res/little_logo.png" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/startbootstrap-grayscale-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="~/startbootstrap-grayscale-gh-pages//vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/startbootstrap-grayscale-gh-pages/css/style.css" rel="stylesheet">
+
+    <style>
+        .body-content {
+            min-height: 850px;
+        }
+    </style>
+</head>
+<body class="bg-light" id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light fixed-top" id="mainNav">
+        <div class="container w-100">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="navbar-brand text-white" href="@Url.Action("Index", "Account")">Movie Memory</a>
+            }
+            else
+            {
+                <a class="navbar-brand text-white" href="@Url.Action("Index", "Home")">Movie Memory</a>
+            }
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item pt-2">
+                        @using (Html.BeginForm("SearchMovie", "Home", FormMethod.Post, new { @class = "form-inline" }))
+                        {
+                            <input class="form-control w-75" id="searchedMovie" name="searchedMovie" placeholder="Search movies..." type="text" value="">
+                            <button class="btn btn-secondary p-2" type="submit"><i class="fas fa-search"></i></button>
+                        }
+                    </li>
+                    <li class="nav-item dropdown mx-1">
+                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Genres</button>
+                        <div class="dropdown-menu px-2 bg-dark">
+                            @{ Html.RenderAction("Genres", "Movie"); }
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown mx-1">
+                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Lists</button>
+                        <ul class="dropdown-menu px-2 bg-dark" id="lists">
+                            @{ Html.RenderAction("MovieLists", "Movie"); }
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="height: 100px"></div>
+
+    <!-- Main Content -->
+    <div class="body-content container mt-5">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <!-- Footer -->
+    <footer class="bg-light small text-center text-50">
+        <div class="container">
+            Copyright &copy; Movie Memory 2019
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/startbootstrap-grayscale-gh-pages/vendor/jquery/jquery.min.js"></script>
+    <script src="~/startbootstrap-grayscale-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="~/startbootstrap-grayscale-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="~/startbootstrap-grayscale-gh-pages/js/grayscale.min.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,160 @@
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\MovieMemory.dll.config
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\MovieMemory.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\MovieMemory.pdb
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\csc.exe
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\csc.exe.config
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\csc.rsp
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\csi.exe
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\csi.exe.config
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\csi.rsp
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.AppContext.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Console.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.IO.Compression.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Security.Claims.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.ValueTuple.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\vbc.exe
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\vbc.exe.config
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\vbc.rsp
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\VBCSCompiler.exe
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\Antlr3.Runtime.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\Newtonsoft.Json.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.Helpers.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.Mvc.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.Optimization.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.Razor.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.WebPages.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.WebPages.Razor.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\WebGrease.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.Helpers.xml
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.Mvc.xml
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.Optimization.xml
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.Razor.xml
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.WebPages.xml
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\System.Web.WebPages.Razor.xml
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\Newtonsoft.Json.xml
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\Antlr3.Runtime.pdb
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\obj\Debug\MovieMemory.csprojAssemblyReference.cache
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\obj\Debug\MovieMemory.csproj.CoreCompileInputs.cache
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\obj\Debug\MovieMemory.csproj.CopyComplete
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\obj\Debug\MovieMemory.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\obj\Debug\MovieMemory.pdb
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\EntityFramework.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\EntityFramework.SqlServer.dll
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\EntityFramework.xml
+C:\Users\Nurefsan.Musevitoglu\Depot\2019\Nurefşan Musevitoğlu\MovieMemory\MovieMemory\bin\EntityFramework.SqlServer.xml
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\MovieMemory.dll.config
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\MovieMemory.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\MovieMemory.pdb
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\csc.exe
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\csc.exe.config
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\csc.rsp
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\csi.exe
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\csi.exe.config
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\csi.rsp
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.AppContext.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Console.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.IO.Compression.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.IO.Pipes.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Security.Claims.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.ValueTuple.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Xml.XPath.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\vbc.exe
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\vbc.exe.config
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\vbc.rsp
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\VBCSCompiler.exe
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\Antlr3.Runtime.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\EntityFramework.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\EntityFramework.SqlServer.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\Newtonsoft.Json.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.Helpers.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.Mvc.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.Optimization.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.Razor.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.WebPages.Deployment.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.WebPages.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.WebPages.Razor.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\WebGrease.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\EntityFramework.xml
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\EntityFramework.SqlServer.xml
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.Helpers.xml
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.Mvc.xml
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.Optimization.xml
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.Razor.xml
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.WebPages.xml
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.WebPages.Deployment.xml
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\System.Web.WebPages.Razor.xml
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\Newtonsoft.Json.xml
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\Antlr3.Runtime.pdb
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\obj\Debug\MovieMemory.csprojAssemblyReference.cache
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\obj\Debug\MovieMemory.csproj.CoreCompileInputs.cache
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\obj\Debug\MovieMemory.csproj.CopyComplete
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\obj\Debug\MovieMemory.dll
+C:\Users\NUREFSHINE\Desktop\MovieMemory\MovieMemory\obj\Debug\MovieMemory.pdb

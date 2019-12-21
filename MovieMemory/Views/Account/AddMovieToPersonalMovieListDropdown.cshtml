@@ -1,0 +1,68 @@
+﻿@using MovieMemory.Models
+@model List<PersonalMovieList>
+@{ 
+    int movieId = ViewBag.movieId;
+    int isInListId = -1;
+    string isInListTitle = null;
+    foreach (var pml in Model)
+    {
+        foreach (var m in pml.Movies)
+        {
+            if (m.Id == movieId)
+            {
+                isInListId = pml.Id;
+                isInListTitle = pml.Title;
+                break;
+            }
+        }
+        if (isInListId != -1)
+        {
+            break;
+        }
+    }
+    List<PersonalMovieList> PMLsOfMovie = ViewBag.PMLsOfMovie;
+    //foreach (var pml in PMLsOfMovie)
+    //{
+    //    if (pml.Title == "Want-to-watch" || pml.Title == "Watched")
+    //    {
+    //        isInListId = pml.Id;
+    //        isInListTitle = pml.Title;
+    //        break;
+    //    }
+    //}
+}
+
+<div class="btn-group my-2">
+        @if (isInListId != -1)
+        {
+            <a href="@Url.Action("RemoveMovieFromPersonalMovieList", "Account", new { listId = isInListId, movieId = movieId })" class="btn btn-secondary p-2"><i class="fas fa-check-circle" style="color:#ffc107"></i> @isInListTitle</a>
+        }
+        else
+        {
+            <a href="@Url.Action("AddMovieToPersonalMovieList", "Account", new { listId = Model.FirstOrDefault(i => i.Title == "Want-to-watch").Id, movieId = movieId })" class="btn btn-secondary p-2">Want-to-Watch</a>
+        }
+        <button type="button" class="btn btn-secondary p-2 dropdown-toggle" data-toggle="dropdown"></button>
+        <div class="dropdown-menu bg-secondary">
+            @foreach (var pml in Model)
+            {
+                bool isInList = true;
+                foreach (var pml1 in PMLsOfMovie)
+                {
+                    if (pml.Id == pml1.Id)
+                    {
+                        isInList = false;
+                    }
+                }
+                if (isInList)
+                {
+                    <a href="@Url.Action("AddMovieToPersonalMovieList", "Account", new { listId = pml.Id, movieId = movieId })" class="dropdown-item">@pml.Title</a>
+                }
+                else if (!isInList && (pml.Title != "Watched" && pml.Title != "Want-to-watch"))
+                {
+                    <a href="@Url.Action("RemoveMovieFromPersonalMovieList", "Account", new { listId = pml.Id, movieId = movieId })" class="dropdown-item"><i class="fas fa-check-circle" style="color:#ffc107"></i> @pml.Title</a>
+                }
+            }
+            <div class="dropdown-divider"></div>
+            <a href="@Url.Action("AddMovieList", "Account")" class="dropdown-item">Add New List</a>
+        </div>
+    </div>

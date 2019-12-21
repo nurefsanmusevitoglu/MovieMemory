@@ -1,0 +1,71 @@
+﻿@using MovieMemory.Models
+@model List<User>
+@{
+    ViewBag.Title = "SearchUser";
+    var friendship = ViewBag.friendship;
+
+}
+
+<h4>Search User</h4>
+<hr />
+
+@using (Html.BeginForm("SearchUser", "Account", FormMethod.Post, new { @class = "form-inline flex-nowrap" }))
+{
+    @Html.Hidden("username", User.Identity.Name)
+    @Html.TextBox("searchedUser", null, new { @class = "form-control w-100", placeholder = "Search for a user..." })
+    <button class="text-muted btn btn-dark p-2" type="submit"><i class="fas fa-search js-scroll-trigger"></i></button>
+}
+
+<div class="alert alert-success alert-dismissible fade show my-5" role="alert">
+    <h5>There are @Model.Count users found</h5>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<table class="table table-borderless my-5">
+    <tbody>
+        @foreach (var u in Model)
+        {
+            bool isFriend = false;
+            bool isWaitingFriend = false;
+            bool isRequestedFriend = false;
+            foreach (var f in friendship.Friends)
+            {
+                if (f.Id == u.Id) { isFriend = true; }
+            }
+            foreach (var f in friendship.WaitingFriends)
+            {
+                if (f.Id == u.Id) { isWaitingFriend = true; }
+            }
+            foreach (var f in friendship.RequestedFriends)
+            {
+                if (f.Id == u.Id) { isRequestedFriend = true; }
+            }
+        <tr>
+            <td>
+                <img class="mr-2" style="width:50px" src="~/res/@u.Picture" alt="poster" />
+                <a href="@Url.Action("Profile", new { username = u.Username })" role="button"><strong>@u.Name @u.Surname</strong></a>
+            </td>
+            @if (isFriend) { }
+            else if (isWaitingFriend)
+            {
+                <td class="float-right">
+                    <a href="@Url.Action("AnswerFriend", new { id = u.Id, isAccepted = true })" role="button" class="btn btn-success p-3"><i class="fas fa-user-check"></i></a>
+                    <a href="@Url.Action("AnswerFriend", new { id = u.Id, isAccepted = false })" role="button" class="btn btn-danger p-3"><i class="fas fa-user-times"></i></a>
+                </td>
+            }
+            else if (isRequestedFriend)
+            {
+                <td><a href="@Url.Action("DeleteFriend", new { id = u.Id })" role="button" class="btn btn-secondary float-right p-3"><i class="fas fa-user-clock"></i></a></td>
+            }
+            else
+            {
+                <td><a href="@Url.Action("AddFriend", new { id = u.Id})" role="button" class="btn btn-primary float-right p-3"><i class="fas fa-user-plus"></i></a></td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Return to Friends", "Friends", new { username = User.Identity.Name }, new { @class = "btn btn-dark" })

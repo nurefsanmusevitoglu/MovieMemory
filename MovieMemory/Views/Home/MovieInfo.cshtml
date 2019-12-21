@@ -1,0 +1,102 @@
+﻿@using MovieMemory.Models
+@model Movie
+@{
+    ViewBag.Title = "MovieInfo";
+    List<User> _users = ViewBag._users;
+    int stars = ViewBag.stars;
+    if (!User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    }
+}
+
+<h2>@Model.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-lg-4 text-center">
+        <img width="200" src="~/res/@Model.Poster" alt="Movie Poster" />
+        <div class="align-content-between" id="review">
+            @{
+                if (User.Identity.IsAuthenticated)
+                {
+                    Html.RenderAction("AddMovieToPersonalMovieListDropdown", "Account", new { movieId = Model.Id });
+                    using (Html.BeginForm("StarRating", "Account", FormMethod.Post))
+                    {
+                        @Html.Hidden("movieId", Model.Id)
+                        <div id="full-stars-example">
+                            <p class="text-muted mb-0">Rate Movie</p>
+                            <div class="rating-group">
+                                @if (stars == 0)
+                                {
+                                    <input class="rating__input" id="rating-0" value="0" type="radio" checked>
+                                }
+                                @for (int i = 1; i <= 10; i++)
+                                {
+                                    string labelName = "rating-" + i;
+                                    <label aria-label="stars" class="rating__label" for="@labelName"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                                    if (i == stars)
+                                    {
+                                        <input class="rating__input" id="@labelName" value="@i" type="radio" checked>
+                                    }
+                                    else
+                                    {
+                                        <input class="rating__input" name="rating" id="@labelName" value="@i" type="submit">
+                                    }
+                                }
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="align-content-between">
+            <p>by <strong>@Model.Director</strong>, @Model.ReleaseDate.ToString("yyyy")</p>
+            <p id="rating">IMDB Rating: @Model.IMDBRating</p>
+            <p id="rating">Community Rating: @Model.GetRating()</p>
+            <p>
+                @Model.Ratings.Count ratings,
+                @Model.Reviews.Count reviews
+            </p>
+        </div>
+        <p>@Model.Theme</p>
+        <div class="align-content-center">
+            <a>Genres: </a>
+            @foreach (var genre in Model.Genres)
+            {
+                <a href="@Url.Action("GenreList", "Movie", new { id = genre.Id })" class="btn btn-primary text-white p-3">@genre.GenreName</a>
+            }
+        </div>
+    </div>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="card-footer alert-dark m-0 mt-4 p-4 border-0">
+        @using (Html.BeginForm("CommentMovie", "Account", FormMethod.Post))
+        {
+            @Html.Hidden("movieId", Model.Id)
+            <textarea name="comment" class="form-control" rows="2" placeholder="Write your comment..."></textarea>
+            <button class="btn btn-dark my-2 p-3" type="submit">Send</button>
+        }
+        @if (Model.Reviews.Count != 0)
+        {
+            <hr />
+        }
+        <ul class="list-unstyled">
+            @foreach (var r in Model.Reviews)
+            {
+                <li class="media my-4">
+                    <img src="~/res/avatar.png" class="mr-3" alt="user picture" width="50">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1"><a href="@Url.Action("Profile", "Account", new { username = _users.FirstOrDefault(i => i.Id == r.UserId).Username })">@_users.FirstOrDefault(i => i.Id == r.UserId).Name @_users.FirstOrDefault(i => i.Id == r.UserId).Surname</a></h5>
+                        @r.Comment
+                    </div>
+                    <small class="text-muted mt-1">@r.ReviewTime.ToString("dd MMM. yyyy, HH:mm")</small>
+                </li>
+            }
+        </ul>
+    </div>
+}

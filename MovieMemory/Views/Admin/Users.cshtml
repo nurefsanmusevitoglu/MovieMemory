@@ -1,0 +1,65 @@
+﻿@using MovieMemory.Models
+@model List<User>
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    List<Country> _countries = ViewBag.countries;
+}
+
+<h2><a href="@Url.Action("Users", "Admin")">@ViewBag.Title</a></h2>
+<hr />
+
+<div class="mb-5" id="searchBar">
+    @using (Html.BeginForm("SearchUser", "Admin", FormMethod.Post, new { @class = "form-inline flex-nowrap" }))
+    {
+        @Html.TextBox("searchedUser", null, new { @class = "form-control w-100", placeholder = "Search for any user..." })
+        <button class="text-muted btn btn-dark p-2" type="submit"><i class="fas fa-search js-scroll-trigger"></i></button>
+    }
+</div>
+
+@if (ViewBag.searchMessage != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.searchMessage
+    </div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">gender</th>
+            <th scope="col">country</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.Id</td>
+                <td>@u.Name</td>
+                <td>@u.Surname</td>
+                <td>@u.Gender</td>
+                <td>@u.Country</td>
+                <td class="float-right">
+                    <a href="@Url.Action("UserDetail", new { id = u.Id })" role="button" class="btn btn-info">Details</a>
+                    @if (u.Role == "U")
+                    {
+                        <a href="@Url.Action("AddToAdmin", new { id = u.Id })" role="button" class="btn btn-secondary">Make Admin</a>
+                        <a href="@Url.Action("UserDelete", new { id = u.Id })" role="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("RemoveFromAdmin", new { id = u.Id })" role="button" class="btn btn-success">Admin <i class="fas fa-check"></i></a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@Html.ActionLink("Return to Main Page", "Index", null, new { @class = "btn btn-warning" })
